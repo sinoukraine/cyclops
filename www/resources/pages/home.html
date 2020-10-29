@@ -230,7 +230,7 @@
                                     <a href="#" class="item-link item-content asset" data-imei="${item.IMEI}">
                                         <div class="item-media">
                                             ${ assetImg }`;
-                            if(solutiontype.toLowerCase() !== 'protect' && solutiontype.toLowerCase() !== 'witiprotect' && solutiontype.toLowerCase() !== 'loc8' ){
+                            if(solutiontype.toLowerCase() !== 'protect' && solutiontype.toLowerCase() !== 'witiprotect' && solutiontype.toLowerCase() !== 'loc8' && solutiontype.toLowerCase() !== 'qprotect' ){
                                 ret +=`     <i class="icon-status-fix ${ afs.status.state }"></i>`;
                             }
                                 ret +=` </div>
@@ -238,7 +238,7 @@
                                             <div class="item-title-row height-60 align-items-center">
                                                 <div class="item-title">
                                                     ${ item.Name }`;
-                            if(solutiontype.toLowerCase() !== 'protect' && solutiontype.toLowerCase() !== 'witiprotect' && solutiontype.toLowerCase() !== 'loc8'){
+                            if(solutiontype.toLowerCase() !== 'protect' && solutiontype.toLowerCase() !== 'witiprotect' && solutiontype.toLowerCase() !== 'loc8' && solutiontype.toLowerCase() !== 'qprotect'){
                                 ret +=`             <div class="item-footer ${ afs.status.state }">
                                                         ${ afs.status.value }
                                                     </div>`;
@@ -250,7 +250,7 @@
 
                             ret +=`             </div>
                                                 <div class="item-after flex-direction-column align-content-flex-end">`;
-                            if(solutiontype.toLowerCase() !== 'protect' && solutiontype.toLowerCase() !== 'witiprotect' && solutiontype.toLowerCase() !== 'loc8'){
+                            if(solutiontype.toLowerCase() !== 'protect' && solutiontype.toLowerCase() !== 'witiprotect' && solutiontype.toLowerCase() !== 'loc8' && solutiontype.toLowerCase() !== 'qprotect'){
                                 ret +=`            <div class="text-align-right">
                                                         <i data-id="solutiontype-${ item.IMEI }" class="f7-icons size-16 margin-left-half ${ solutiontypeIcon } text-color-blue"></i>
                                                         <i data-id="signal-state-${ item.IMEI }" class="f7-icons size-16 margin-left-half icon-live-signal ${ afs.GSM.state }"></i>
@@ -365,7 +365,7 @@
 
                 listEl.on('click', 'li a.asset', function () {
                     let IMEI = $$(this).data('imei');
-                    if (!POSINFOASSETLIST[IMEI] || !POSINFOASSETLIST[IMEI].SolutionType || POSINFOASSETLIST[IMEI].SolutionType.toLowerCase() !== "track" && POSINFOASSETLIST[IMEI].SolutionType.toLowerCase() !== "watch" ){
+                    if (!POSINFOASSETLIST[IMEI] || !POSINFOASSETLIST[IMEI].SolutionType || POSINFOASSETLIST[IMEI].SolutionType.toLowerCase() !== "track" && POSINFOASSETLIST[IMEI].SolutionType.toLowerCase() !== "watch" && POSINFOASSETLIST[IMEI].SolutionType.toLowerCase() !== "wititrack" && POSINFOASSETLIST[IMEI].SolutionType.toLowerCase() !== "boat_watch" ){
                         mainView.router.navigate('/asset-protect/?imei='+IMEI);
                     }else{
                         mainView.router.navigate('/asset-status/?tabs=true&imei='+IMEI);
@@ -395,7 +395,7 @@
                                                 <ul>
                                                     <li class="item-divider">${ LANGUAGE.COM_MSG042 }</li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom item-content popover-close" >
                                                             <input type="radio" name="radio-sort-list" value="name" ${ sortBy === 'name' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -404,7 +404,7 @@
                                                         </label>
                                                     </li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom item-content popover-close" >
                                                             <input type="radio" name="radio-sort-list" value="state" ${ sortBy === 'state' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -414,7 +414,7 @@
                                                     </li>
                                                     <li class="item-divider">${ LANGUAGE.COM_MSG045 }</li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom item-content popover-close" >
                                                             <input type="radio" name="radio-order-list" value="asc" ${ orderBy === 'asc' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -423,7 +423,7 @@
                                                         </label>
                                                     </li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom item-content popover-close" >
                                                             <input type="radio" name="radio-order-list" value="desc" ${ orderBy === 'desc' ? 'checked' : '' }/>
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">

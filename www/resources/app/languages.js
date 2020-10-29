@@ -417,6 +417,7 @@ window.LanguagePackages= {
 		"ASSET_STATUS_LIVE_MSG07": "Report Theft",
 		"ASSET_STATUS_LIVE_MSG08": "WiTi",
 		"ASSET_STATUS_LIVE_MSG09": "Unlock Door",
+		"ASSET_STATUS_LIVE_MSG10": "Driver Rating",
 
 		"REPORT_THEFT_MSG00": "Please follow the below steps when reporting your stolen asset.",
 		"REPORT_THEFT_MSG01": "1. Contact police to report the incident. You will be provided with an incident report number.",
@@ -424,7 +425,13 @@ window.LanguagePackages= {
 		"REPORT_THEFT_MSG03": "3. Click <a href='{0}' target='_blank' class='external color-red'>CREATE REPORT</a> to lodge report theft. This will formulate a complete report to be used for insurance, personal and/or police information.",
 		"REPORT_THEFT_MSG04": "Create Report",
 
-
+		"ASSET_RATING_MSG00": "Per Day",
+		"ASSET_RATING_MSG01": "Per Week",
+		"ASSET_RATING_MSG02": "Harsh Bracking",
+		"ASSET_RATING_MSG03": "Harsh Acceleration",
+		"ASSET_RATING_MSG04": "Excessive Idling",
+		"ASSET_RATING_MSG05": "Speeding",
+		"ASSET_RATING_MSG06": "of 100 points",
 
 		"ASSET_PLAYBACK_MSG00": "PlayBack",
 		"ASSET_PLAYBACK_MSG01": "Show Optimized",

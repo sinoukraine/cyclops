@@ -54,7 +54,7 @@ API_URL.URL_SUPPORT = "https://support.quiktrak.eu/";
 API_URL.URL_REPORT_THEFT = "https://forms.quiktrak.com.au/report-theft/";
 API_URL.URL_UPGRADE = "https://app.quikprotect.co/activation2/";
 API_URL.REFERRAL_PROGRAM = "https://forms.quiktrak.com.au/referral-program/";
-API_URL.URL_USER_GUIDE = "https://quiktrak.com.au/pdf/manuals/qt-pro-app.pdf";
+API_URL.URL_USER_GUIDE = "https://helper.quiktrak.com.au/manuals/cyclops/app-manual.pdf";
 
 API_URL.GET_BALANCE = API_DOMIAN3 + "Balance";
 API_URL.EDIT_ACCOUNT = API_DOMIAN3 + "AccountEdit";
@@ -109,8 +109,8 @@ $$('#app').append(compiledTemplate());
 
 // Init App
 const app = new Framework7({
-    id: 'com.quiktrak.pro',
-    name: 'QuikTrak Pro',
+    id: 'com.cyclopssecuritysystems.app',
+    name: 'Cyclops Security Systems',
     root: '#app',
     theme: Framework7.device.ios ? 'ios' : 'md',
     view: {
@@ -132,8 +132,9 @@ const app = new Framework7({
         }
         return {
             logo: 'resources/images/logo.svg',
-            logoBlack: 'resources/images/logo-black.svg',
-            logoModal: 'resources/images/logo-black.svg',
+            logoBlack: 'resources/images/logo.svg',
+            logoModal: 'resources/images/logo.svg',
+            logoExternal: 'https://helper.quiktrak.com.au/manuals/cyclops/logo.png',
             MaxMapPopupWidth: maxPopupWidth,
             PolygonCustomization: {
                 color: '#AA5959',
@@ -177,9 +178,9 @@ const app = new Framework7({
                 },
             },
             AppDetails: {
-                name: 'QuikTrak-Pro-app',
-                code: 23,
-                supportCode: 3,
+                name: 'Cyclops-app',
+                code: 43,
+                supportCode: 43,
                 appId: '',
                 appleId: '1505742400',
                 appVersion: '',
@@ -374,7 +375,7 @@ const app = new Framework7({
                 if (!localStorage.PUSH_DEVICE_TOKEN)
                     localStorage.PUSH_DEVICE_TOKEN = uid;
                 //localStorage.PUSH_DEVICE_TOKEN = "75ba1639-92ae-0c4c-d423-4fad1e48a49d"
-                localStorage.PUSH_APPID_ID = 'android.app.quiktrak.eu.quiktrak.new';
+                localStorage.PUSH_APPID_ID = 'android.app.quiktrak.eu.cyclops';
                 localStorage.DEVICE_TYPE = self.device.ios ? 'iOS' : 'android';
             }
         },
@@ -1509,7 +1510,7 @@ const app = new Framework7({
             if (credits > 6) {
                 return;
             }
-            if(this.data.AccountSolutionArray.indexOf('protect') === -1 && this.data.AccountSolutionArray.indexOf('witiprotect') === -1) {
+            if(this.data.AccountSolutionArray.indexOf('protect') === -1 && this.data.AccountSolutionArray.indexOf('witiprotect') === -1 && this.data.AccountSolutionArray.indexOf('qprotect') === -1) {
                 return;
             }
 
@@ -1609,6 +1610,8 @@ const app = new Framework7({
             if(params.asset){
                 switch (params.type) {
                     case 'track':
+                    case 'wititrack':
+                    case 'boat_watch':
                         ret = Protocol.MarkerIcon[0];
                         break;
                     case 'watch':
@@ -1618,6 +1621,8 @@ const app = new Framework7({
                         ret = Protocol.MarkerIcon[2];
                         break;
                     case 'protect':
+                    case 'qprotect':
+                    case 'witiprotect':
                         ret = Protocol.MarkerIcon[3];
                         break;
                 }
@@ -2233,7 +2238,8 @@ const app = new Framework7({
                                 continue;
                             }
                             if ( list[i].SolutionType.toLowerCase().indexOf('protect') >= 0 ||
-                                list[i].SolutionType.toLowerCase().indexOf('witiprotect') >= 0 )
+                                list[i].SolutionType.toLowerCase().indexOf('witiprotect') >= 0 ||
+                                list[i].SolutionType.toLowerCase().indexOf('qprotect') >= 0 )
                             {
                                 itemIndexToShow.push(i);
                             }
@@ -2255,7 +2261,8 @@ const app = new Framework7({
                                 continue;
                             }
                             if ( list[i].SolutionType.toLowerCase().indexOf('track') >= 0 ||
-                                 list[i].SolutionType.toLowerCase().indexOf('watch') >= 0 )
+                                 list[i].SolutionType.toLowerCase().indexOf('watch') >= 0 ||
+                                 list[i].SolutionType.toLowerCase().indexOf('wititrack') >= 0 )
                             {
                                 itemIndexToShow.push(i);
                             }
@@ -2430,6 +2437,7 @@ const app = new Framework7({
                     switch (type){
                         case 'protect':
                         case 'witiprotect':
+                        case 'qprotect':
                             ret.Protect++;
                             break;
 
@@ -2437,7 +2445,9 @@ const app = new Framework7({
                             ret.Loc8++;
                             break;
 
-                        case 'track': case 'watch':
+                        case 'track':
+                        case 'watch':
+                        case 'wititrack':
                             ret.Live++;
                             break;
                     }

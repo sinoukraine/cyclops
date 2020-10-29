@@ -22,9 +22,9 @@
             </div>
         </div>
         {{#if ShowPayment}}
-        <div class="toolbar toolbar-bottom ">
+        <div class="toolbar toolbar-bottom no-border">
             <div class="toolbar-inner ">
-                <a href="/asset-upgrade/?imei={{IMEI}}" class="link button width-100 color-white "><i class="f7-icons icon-upgrade-to-live margin-right"></i>{{@global.LANGUAGE.ASSET_PROTECT_MSG01}}</a>
+                <a href="/asset-upgrade/?imei={{IMEI}}" class="link button width-100 color-white bg-color-custom"><i class="f7-icons icon-upgrade-to-live margin-right"></i>{{@global.LANGUAGE.ASSET_PROTECT_MSG01}}</a>
             </div>
         </div>
         {{/if}}
@@ -74,7 +74,7 @@
                 </li>
 
                 {{#if IsWitiSolution}}
-                    <li class="item-content">
+                    <!--<li class="item-content">
                         <div class="item-media {{#if LockDoor}} text-color-red {{else}} text-color-lightgray {{/if}}">
                             <i class="f7-icons icon-protect-immobilisation3"></i>
                         </div>
@@ -88,7 +88,7 @@
                                 {{/if}}
                             </div>
                         </div>
-                    </li>
+                    </li>-->
                 {{else}}
 
                     {{#if IsImmobilisationSupported}}
@@ -111,7 +111,7 @@
                         <div class="item-inner">
                             <div class="item-title">{{@global.LANGUAGE.ASSET_PROTECT_MSG03}}</div>
                             <div class="item-after display-flex align-items-center">
-                                <span class="badge color-lightblue margin-right-half tooltip-init" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG120}}">?</span>
+                                <span class="badge color-orange margin-right-half tooltip-init" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG120}}">?</span>
                                 <div class="min-width-122">
                                     <button @click="changeState" data-name="Immobilise" data-state="true" data-command="locate" class="button button-fill color-custom ">{{@global.LANGUAGE.COM_MSG114}}</button>
                                 </div>

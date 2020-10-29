@@ -40,12 +40,12 @@
             </div>
         </div>
         {{/if}}
-        <div class="toolbar toolbar-bottom ">
-            <div class="toolbar-inner ">
+        <div class="toolbar toolbar-bottom no-border">
+            <div class="toolbar-inner row no-gap no-padding">
                 {{#if isLiveAsset}}
-                <a href="/report-theft/?imei={{IMEI}}" class="link button width-100 color-white"><i class="f7-icons icon-live-report-thief margin-right"></i> {{@global.LANGUAGE.ASSET_STATUS_LIVE_MSG07}}</a>
+                <a href="/report-theft/?imei={{IMEI}}" class="link button col-100 color-white bg-color-custom"><i class="f7-icons icon-live-report-thief margin-right"></i> {{@global.LANGUAGE.ASSET_STATUS_LIVE_MSG07}}</a>
                 {{else}}
-                <a @click="requestStatus" href="#" class="link button width-100 color-white"><i class="f7-icons icon-header-refresh margin-right"></i> {{@global.LANGUAGE.COM_MSG057}}</a>
+                <a @click="requestStatus" href="#" class="link button width-100 color-white bg-color-custom"><i class="f7-icons icon-header-refresh margin-right"></i> {{@global.LANGUAGE.COM_MSG057}}</a>
                 {{/if}}
             </div>
         </div>
@@ -79,9 +79,9 @@
                             <i class="f7-icons icon-live-geolock"></i>
                         </div>
                         <div class="item-inner">
-                            <div class="item-title tooltip-init" data-trigger="click" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG004}}">{{@global.LANGUAGE.ASSET_STATUS_LIVE_MSG04}}  <span class="badge color-lightblue">?</span></div>
+                            <div class="item-title tooltip-init" data-trigger="click" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG004}}">{{@global.LANGUAGE.ASSET_STATUS_LIVE_MSG04}}  <span class="badge color-orange">?</span></div>
                             <div class="item-after">
-                                <label class="toggle color-green toggle-Geolock">
+                                <label class="toggle color-custom toggle-Geolock">
                                     <input type="checkbox" name="Geolock" {{#if Geolock}} checked {{/if}}>
                                     <span class="toggle-icon"></span>
                                 </label>
@@ -94,9 +94,9 @@
                             <i class="f7-icons icon-live-immobilisation"></i>
                         </div>
                         <div class="item-inner">
-                            <div class="item-title tooltip-init" data-trigger="click" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG005}}">{{@global.LANGUAGE.ASSET_STATUS_LIVE_MSG05}}  <span class="badge color-lightblue">?</span></div>
+                            <div class="item-title tooltip-init" data-trigger="click" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG005}}">{{@global.LANGUAGE.ASSET_STATUS_LIVE_MSG05}}  <span class="badge color-orange">?</span></div>
                             <div class="item-after">
-                                <label class="toggle color-green toggle-Immobilisation">
+                                <label class="toggle color-custom toggle-Immobilisation">
                                     <input type="checkbox" name="Immobilise" {{#if Immobilise}} checked {{/if}}>
                                     <span class="toggle-icon"></span>
                                 </label>
@@ -112,7 +112,7 @@
                         <div class="item-inner">
                             <div class="item-title">{{@global.LANGUAGE.ASSET_STATUS_LIVE_MSG09}}</div>
                             <div class="item-after min-width-122">
-                                <a href="#" class=" width-100 button button-fill color-darkgray" @click="unlockDoor">{{@global.LANGUAGE.COM_MSG114}}</a>
+                                <a href="#" class=" width-100 button button-fill color-custom" @click="unlockDoor">{{@global.LANGUAGE.COM_MSG114}}</a>
                             </div>
                         </div>
                     </li>
@@ -261,7 +261,7 @@
                 IMEI: asset.IMEI,
                 IMSI: asset.IMSI,
                 Id: asset.Id,
-                isLiveAsset: asset.SolutionType.toLowerCase() !== 'protect' && asset.SolutionType.toLowerCase() !== 'loc8',
+                isLiveAsset: asset.SolutionType.toLowerCase() !== 'protect' && asset.SolutionType.toLowerCase() !== 'loc8' && asset.SolutionType.toLowerCase() !== 'witiprotect' && asset.SolutionType.toLowerCase() !== 'qprotect',
                 Tabs: !!tabsFlag,
 
                 PositionTime: asset.posInfo.positionTime ? asset.posInfo.positionTime.format(window.COM_TIMEFORMAT) : LANGUAGE.COM_MSG031,
