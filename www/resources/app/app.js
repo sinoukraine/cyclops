@@ -50,9 +50,9 @@ API_URL.GEOFENCE_DELETE = API_DOMIAN1 + "Device/FenceDelete";
 
 API_URL.URL_ROUTE = "https://www.google.com/maps/dir/?api=1&destination={0},{1}";
 API_URL.URL_ROUTE_IOS = "maps://maps.apple.com/maps?daddr={0},{1}";
-API_URL.URL_SUPPORT = "https://support.quiktrak.eu/";
+API_URL.URL_SUPPORT = "https://support.cyclops.quiktrak.eu/";
 API_URL.URL_REPORT_THEFT = "https://forms.quiktrak.com.au/report-theft/";
-API_URL.URL_UPGRADE = "https://app.quikprotect.co/activation2/";
+API_URL.URL_UPGRADE = "https://activation.cyclops.quiktrak.eu/";
 API_URL.REFERRAL_PROGRAM = "https://forms.quiktrak.com.au/referral-program/";
 API_URL.URL_USER_GUIDE = "https://helper.quiktrak.com.au/manuals/cyclops/app-manual.pdf";
 
